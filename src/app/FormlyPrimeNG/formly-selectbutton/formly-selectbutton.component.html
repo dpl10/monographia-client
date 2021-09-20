@@ -1,0 +1,8 @@
+<p-selectButton
+	[class.ng-dirty]="showError"
+	[formControl]="formControl"
+	[formlyAttributes]="field"
+	[options]="to.options | formlySelectOptions:field | async"
+	dataKey="value"
+	optionLabel="label"
+></p-selectButton>

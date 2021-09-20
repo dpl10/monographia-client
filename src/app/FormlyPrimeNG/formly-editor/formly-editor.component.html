@@ -1,0 +1,21 @@
+<div class=formlyEditor>
+	<p-editor
+		[class.ng-dirty]="showError"
+		[formControl]="formControl"
+		[formlyAttributes]="field"
+		[placeholder]="to.placeholder | translate"
+		[style]="{'height':'15ex'}"
+	>
+		<p-header>
+			<span class="ql-formats">
+				<button class="ql-bold"></button>
+				<button class="ql-italic"></button>
+				<button class="ql-clean"></button>
+				<button class="ql-script" value="sub"></button>
+				<button class="ql-script" value="super"></button>
+				<select class="ql-color"></select>
+				<button class="ql-link"></button>
+			</span>
+	  </p-header>
+	</p-editor>
+</div>

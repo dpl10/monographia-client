@@ -1,0 +1,2044 @@
+/*
+global Monographia style settings
+*/
+
+/* colors with help from http://www.perbang.dk/color+scheme/ base = 338811, 45 degree analogous */
+$darkestGreen: #226600;
+$darkGreen: #338811;
+$mediumGreen: #30A800;
+$lightGreen: #CCFF66;
+$darkGray: #777755;
+$mediumGray: #D9DDD7;
+$lightGray: #F2F2F2;
+$black: #101111;
+$white: #FFFFFF;
+$pink: #FFEEFF;
+$red: #881133; /* 120 degree analogous */
+/* distinct colors with help from http://tools.medialab.sciences-po.fr/iwanthue/ */
+$distinctRed: #724DFA;
+$distinctOrange: #01FFC8;
+$distinctYellow: #FF4CA7;
+$distinctGreen: #ED8800;
+$distinctBlue: #500521;
+$distinctPurple: #FFAD7F;
+
+/* sizes */
+$corners: 0.25em;
+$field: 25em;
+$hairline: 0.01em;
+
+/* fonts with help from https://google-webfonts-helper.herokuapp.com/fonts/noto-sans [only latin, latin-ext, greek, and greek-ext for now] */
+$fonts: "Noto Sans", Helvetica, Arial, sans-serif !important;
+$size: 1em;
+/* noto-sans-regular - latin-ext_greek-ext_latin_greek */
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-regular.eot"); /* IE9 Compat Modes */
+	src: local("Noto Sans"), local("NotoSans"),
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-regular.woff2") format("woff2"), /* Super Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-regular.woff") format("woff"), /* Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-regular.ttf") format("truetype"), /* Safari, Android, iOS */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-regular.svg#NotoSans") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-italic - latin-ext_greek-ext_latin_greek */
+@font-face {
+	font-family: "Noto Sans";
+	font-style: italic;
+	font-weight: 400;
+	src: url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-italic.eot"); /* IE9 Compat Modes */
+	src: local("Noto Sans Italic"), local("NotoSans-Italic"),
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-italic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-italic.woff2") format("woff2"), /* Super Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-italic.woff") format("woff"), /* Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-italic.ttf") format("truetype"), /* Safari, Android, iOS */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-italic.svg#NotoSans") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-700 - latin-ext_greek-ext_latin_greek */
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 700;
+	src: url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700.eot"); /* IE9 Compat Modes */
+	src: local("Noto Sans Bold"), local("NotoSans-Bold"),
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700.woff2") format("woff2"), /* Super Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700.woff") format("woff"), /* Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700.ttf") format("truetype"), /* Safari, Android, iOS */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700.svg#NotoSans") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-700italic - latin-ext_greek-ext_latin_greek */
+@font-face {
+	font-family: "Noto Sans";
+	font-style: italic;
+	font-weight: 700;
+	src: url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700italic.eot"); /* IE9 Compat Modes */
+	src: local("Noto Sans Bold Italic"), local("NotoSans-BoldItalic"),
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700italic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700italic.woff2") format("woff2"), /* Super Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700italic.woff") format("woff"), /* Modern Browsers */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700italic.ttf") format("truetype"), /* Safari, Android, iOS */
+		url("assets/font/noto-sans-v7-latin-ext_greek-ext_latin_greek-700italic.svg#NotoSans") format("svg"); /* Legacy iOS */
+}
+
+/* non–PrimeNG classes */
+body {
+	font-size: $size;
+	font-family: $fonts;
+}
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.formArrayButton {
+	height: 1.33em;
+	width: 1.33em;
+	position: relative;
+}
+.formArrayButtonRight {
+	@extend .formArrayButton;
+	margin-left: 0.75em;
+}
+.formArrayButtonBottom {
+	@extend .formArrayButton;
+	margin-top: 0.25em;
+}
+.formArrayElement {
+	margin-top: 0.25em;
+}
+.formDescription,
+.formError {
+	position: relative;
+	display: inline-block;
+	margin-right: 0.25em;
+}
+.formDescriptionText,
+.formErrorText {
+	visibility: hidden;
+	width: max-content;
+	background-color: $black;
+	color: $white;
+	vertical-align: middle;
+	border-radius: $corners;
+	padding: 0.25em 0.25em 0.25em 0.25em;
+	position: absolute;
+	z-index: 1;
+	top: -0.25em;
+	left: 120%;
+	font-size: $size;
+	font-family: $fonts;
+}
+.formDescription .formDescriptionText::after,
+.formError .formErrorText::after {
+	content: "";
+	position: absolute;
+	top: 66.6%;
+	right: 100%;
+	margin-top: -0.25em;
+	border-width: 0.25em;
+	border-style: solid;
+	border-color: transparent $black transparent transparent;
+}
+.formDescription:hover .formDescriptionText,
+.formError:hover .formErrorText {
+	transition: visibility  0s linear 0.75s;
+	visibility: visible;
+}
+.formErrorIcon {
+	color: $red;
+}
+.formErrorText {
+	background-color: $red;
+}
+.formError .formErrorText::after {
+	border-color: transparent $red transparent transparent;
+}
+.formIconContainer {
+	position: absolute;
+	top: 18%;
+	left: 18%;
+	height: 1.33em;
+	width: 1.33em;
+	overflow: hidden;
+	text-align: center;
+	line-height: 1.33em;
+}
+.formlyEditor {
+	width: 2*$field;
+}
+.formlyDropDown {
+	width: $field;
+}
+.formRequired {
+	margin-left: 0;
+	padding-left: 0;
+}
+.iconButton {
+	@extend .formArrayButton;
+	margin-left: 0.375em;
+	margin-right: 0.375em;
+}
+.navButton,
+.navButtonActive {
+	background-color: $darkGreen;
+	display: inline-block;
+	color: $lightGreen;
+	font-size: 120%;
+	padding: 0.25em 0.5em;
+	margin-top: 0.5em;
+	width: 10em;
+	text-decoration: none;
+	border-radius: $corners;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 9.5em;
+}
+.navButton:hover {
+	background-color: $mediumGray;
+	color: $mediumGreen;
+	text-decoration: none;
+}
+.navButton:visited {
+	color: $lightGreen;
+	text-decoration: none;
+}
+.navButton:active {
+	position: relative;
+	top: $hairline;
+	text-decoration: none;
+}
+.navButtonInactive {
+	background-color: $mediumGray;
+	color: $mediumGreen;
+}
+.navButtonInactive:hover {
+	background-color: $mediumGray;
+	color: $mediumGreen;
+	text-decoration: none;
+}
+.navButtonInactive:visited {
+	color: $mediumGreen;
+	text-decoration: none;
+}
+.navButtonInactive:active {
+	position: relative;
+	top: $hairline;
+	text-decoration: none;
+}
+.toolbarButton {
+	height: 3em;
+	width: 3em;
+	position: relative;
+	margin-left: 0.25em;
+	margin-right: 0.25em;
+}
+.toolbarIconContainer {
+	@extend .formIconContainer;
+	height: 3em;
+	width: 3em;
+}
+.vspacer {
+	margin-top: 0.5em;
+}
+
+/*
+Formly modifications
+*/
+.ui-messages-error {
+	margin: 0;
+	margin-top: 0.25em;
+	border-radius: $corners;
+}
+.ui-widget {
+	display: block;
+	padding-top: 0.5em;
+}
+
+/*
+PrimeNG variables
+*/
+/* font */
+$fontFamily: $fonts;
+$fontSize: $size;
+$borderRadius: $corners;
+$disabledOpacity: 0.35;
+/* header: quill (rtf) field toolbar */
+$headerBorderWidth: $hairline;
+$headerBorderColor: $lightGray;
+$headerBgColor: $lightGray;
+$headerTextColor: $darkGreen; /* has no effect */
+$headerFontWeight: normal;
+$headerIconTextColor: $darkGreen; /* has no effect */
+/* content */
+$contentBorderWidth: $hairline;
+$contentBorderColor: $lightGray;
+$contentBgColor: $lightGray;
+$contentTextColor: $black;
+/* default state: radio buttons, drop down */
+$stateDefaultBorderWidth: $hairline;
+$stateDefaultBorderColor: $lightGray;
+$stateDefaultBgColor: $lightGray;
+$stateDefaultTextColor: $mediumGreen;
+/* active state */
+$stateActiveBorderColor: $mediumGray;
+$stateActiveBgColor: $mediumGray;
+$stateActiveTextColor: $mediumGreen;
+/* highlight state */
+$stateHighlightBorderColor: $darkGreen;
+$stateHighlightBgColor: $darkGreen;
+$stateHighlightTextColor: $lightGreen;
+/* focus state */
+$stateFocusBorderColor: $darkGreen;
+$stateFocusBgColor: $mediumGray;
+$stateFocusTextColor: $mediumGreen;
+/* error state */
+$stateErrorBorderColor: $red; /* has no effect */
+$stateErrorBgColor: $red; /* has no effect */
+$stateErrorTextColor: $darkGray; /* has no effect */
+/* hover state */
+$stateHoverBorderColor: $lightGray;
+$stateHoverBgColor: $lightGray;
+$stateHoverTextColor: $mediumGreen;
+/* forms: most input elements */
+$inputBgColor: $lightGray;
+$inputTextColor: $darkGreen;
+$invalidInputBorderColor: $red;
+$inputGroupTextColor: $black;
+
+/*
+Quill Editor v1.3.6
+modified to play nice (px => em; variables added
+*/
+.ql-container {
+	box-sizing: border-box;
+	font-family: $fonts;
+	font-size: 0.8125em;
+	height: 100%;
+	margin: 0em;
+	position: relative;
+}
+.ql-container.ql-disabled .ql-tooltip {
+	visibility: hidden;
+}
+.ql-container.ql-disabled .ql-editor ul[data-checked] > li::before {
+	pointer-events: none;
+}
+.ql-clipboard {
+	left: -100000em;
+	height: 0.0625em;
+	overflow-y: hidden;
+	position: absolute;
+	top: 50%;
+}
+.ql-clipboard p {
+	margin: 0;
+	padding: 0;
+}
+.ql-editor {
+	box-sizing: border-box;
+	line-height: 1.42;
+	height: 100%;
+	outline: none;
+	overflow-y: auto;
+	padding: 0.75em 0.9375em;
+	tab-size: 4;
+	-moz-tab-size: 4;
+	text-align: left;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+.ql-editor > * {
+	cursor: text;
+}
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+	margin: 0;
+	padding: 0;
+	counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol,
+.ql-editor ul {
+	padding-left: 1.5em;
+}
+.ql-editor ol > li,
+.ql-editor ul > li {
+	list-style-type: none;
+}
+.ql-editor ul > li::before {
+	content: '\2022';
+}
+.ql-editor ul[data-checked=true],
+.ql-editor ul[data-checked=false] {
+	pointer-events: none;
+}
+.ql-editor ul[data-checked=true] > li *,
+.ql-editor ul[data-checked=false] > li * {
+	pointer-events: all;
+}
+.ql-editor ul[data-checked=true] > li::before,
+.ql-editor ul[data-checked=false] > li::before {
+	color: $darkGray;
+	cursor: pointer;
+	pointer-events: all;
+}
+.ql-editor ul[data-checked=true] > li::before {
+	content: '\2611';
+}
+.ql-editor ul[data-checked=false] > li::before {
+	content: '\2610';
+}
+.ql-editor li::before {
+	display: inline-block;
+	white-space: nowrap;
+	width: 1.2em;
+}
+.ql-editor li:not(.ql-direction-rtl)::before {
+	margin-left: -1.5em;
+	margin-right: 0.3em;
+	text-align: right;
+}
+.ql-editor li.ql-direction-rtl::before {
+	margin-left: 0.3em;
+	margin-right: -1.5em;
+}
+.ql-editor ol li:not(.ql-direction-rtl),
+.ql-editor ul li:not(.ql-direction-rtl) {
+	padding-left: 1.5em;
+}
+.ql-editor ol li.ql-direction-rtl,
+.ql-editor ul li.ql-direction-rtl {
+	padding-right: 1.5em;
+}
+.ql-editor ol li {
+	counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+	counter-increment: list-0;
+}
+.ql-editor ol li:before {
+	content: counter(list-0, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+	counter-increment: list-1;
+}
+.ql-editor ol li.ql-indent-1:before {
+	content: counter(list-1, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+	counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-2 {
+	counter-increment: list-2;
+}
+.ql-editor ol li.ql-indent-2:before {
+	content: counter(list-2, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-2 {
+	counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-3 {
+	counter-increment: list-3;
+}
+.ql-editor ol li.ql-indent-3:before {
+	content: counter(list-3, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-3 {
+	counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-4 {
+	counter-increment: list-4;
+}
+.ql-editor ol li.ql-indent-4:before {
+	content: counter(list-4, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-4 {
+	counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-5 {
+	counter-increment: list-5;
+}
+.ql-editor ol li.ql-indent-5:before {
+	content: counter(list-5, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-5 {
+	counter-reset: list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-6 {
+	counter-increment: list-6;
+}
+.ql-editor ol li.ql-indent-6:before {
+	content: counter(list-6, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-6 {
+	counter-reset: list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-7 {
+	counter-increment: list-7;
+}
+.ql-editor ol li.ql-indent-7:before {
+	content: counter(list-7, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-7 {
+	counter-reset: list-8 list-9;
+}
+.ql-editor ol li.ql-indent-8 {
+	counter-increment: list-8;
+}
+.ql-editor ol li.ql-indent-8:before {
+	content: counter(list-8, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-8 {
+	counter-reset: list-9;
+}
+.ql-editor ol li.ql-indent-9 {
+	counter-increment: list-9;
+}
+.ql-editor ol li.ql-indent-9:before {
+	content: counter(list-9, decimal) '. ';
+}
+.ql-editor .ql-indent-1:not(.ql-direction-rtl) {
+	padding-left: 3em;
+}
+.ql-editor li.ql-indent-1:not(.ql-direction-rtl) {
+	padding-left: 4.5em;
+}
+.ql-editor .ql-indent-1.ql-direction-rtl.ql-align-right {
+	padding-right: 3em;
+}
+.ql-editor li.ql-indent-1.ql-direction-rtl.ql-align-right {
+	padding-right: 4.5em;
+}
+.ql-editor .ql-indent-2:not(.ql-direction-rtl) {
+	padding-left: 6em;
+}
+.ql-editor li.ql-indent-2:not(.ql-direction-rtl) {
+	padding-left: 7.5em;
+}
+.ql-editor .ql-indent-2.ql-direction-rtl.ql-align-right {
+	padding-right: 6em;
+}
+.ql-editor li.ql-indent-2.ql-direction-rtl.ql-align-right {
+	padding-right: 7.5em;
+}
+.ql-editor .ql-indent-3:not(.ql-direction-rtl) {
+	padding-left: 9em;
+}
+.ql-editor li.ql-indent-3:not(.ql-direction-rtl) {
+	padding-left: 10.5em;
+}
+.ql-editor .ql-indent-3.ql-direction-rtl.ql-align-right {
+	padding-right: 9em;
+}
+.ql-editor li.ql-indent-3.ql-direction-rtl.ql-align-right {
+	padding-right: 10.5em;
+}
+.ql-editor .ql-indent-4:not(.ql-direction-rtl) {
+	padding-left: 12em;
+}
+.ql-editor li.ql-indent-4:not(.ql-direction-rtl) {
+	padding-left: 13.5em;
+}
+.ql-editor .ql-indent-4.ql-direction-rtl.ql-align-right {
+	padding-right: 12em;
+}
+.ql-editor li.ql-indent-4.ql-direction-rtl.ql-align-right {
+	padding-right: 13.5em;
+}
+.ql-editor .ql-indent-5:not(.ql-direction-rtl) {
+	padding-left: 15em;
+}
+.ql-editor li.ql-indent-5:not(.ql-direction-rtl) {
+	padding-left: 16.5em;
+}
+.ql-editor .ql-indent-5.ql-direction-rtl.ql-align-right {
+	padding-right: 15em;
+}
+.ql-editor li.ql-indent-5.ql-direction-rtl.ql-align-right {
+	padding-right: 16.5em;
+}
+.ql-editor .ql-indent-6:not(.ql-direction-rtl) {
+	padding-left: 18em;
+}
+.ql-editor li.ql-indent-6:not(.ql-direction-rtl) {
+	padding-left: 19.5em;
+}
+.ql-editor .ql-indent-6.ql-direction-rtl.ql-align-right {
+	padding-right: 18em;
+}
+.ql-editor li.ql-indent-6.ql-direction-rtl.ql-align-right {
+	padding-right: 19.5em;
+}
+.ql-editor .ql-indent-7:not(.ql-direction-rtl) {
+	padding-left: 21em;
+}
+.ql-editor li.ql-indent-7:not(.ql-direction-rtl) {
+	padding-left: 22.5em;
+}
+.ql-editor .ql-indent-7.ql-direction-rtl.ql-align-right {
+	padding-right: 21em;
+}
+.ql-editor li.ql-indent-7.ql-direction-rtl.ql-align-right {
+	padding-right: 22.5em;
+}
+.ql-editor .ql-indent-8:not(.ql-direction-rtl) {
+	padding-left: 24em;
+}
+.ql-editor li.ql-indent-8:not(.ql-direction-rtl) {
+	padding-left: 25.5em;
+}
+.ql-editor .ql-indent-8.ql-direction-rtl.ql-align-right {
+	padding-right: 24em;
+}
+.ql-editor li.ql-indent-8.ql-direction-rtl.ql-align-right {
+	padding-right: 25.5em;
+}
+.ql-editor .ql-indent-9:not(.ql-direction-rtl) {
+	padding-left: 27em;
+}
+.ql-editor li.ql-indent-9:not(.ql-direction-rtl) {
+	padding-left: 28.5em;
+}
+.ql-editor .ql-indent-9.ql-direction-rtl.ql-align-right {
+	padding-right: 27em;
+}
+.ql-editor li.ql-indent-9.ql-direction-rtl.ql-align-right {
+	padding-right: 28.5em;
+}
+.ql-editor .ql-video {
+	display: block;
+	max-width: 100%;
+}
+.ql-editor .ql-video.ql-align-center {
+	margin: 0 auto;
+}
+.ql-editor .ql-video.ql-align-right {
+	margin: 0 0 0 auto;
+}
+.ql-editor .ql-bg-black {
+	background-color: $black;
+}
+.ql-editor .ql-bg-red {
+	background-color: $distinctRed;
+}
+.ql-editor .ql-bg-orange {
+	background-color: $distinctOrange;
+}
+.ql-editor .ql-bg-yellow {
+	background-color: $distinctYellow;
+}
+.ql-editor .ql-bg-green {
+	background-color: $distinctGreen;
+}
+.ql-editor .ql-bg-blue {
+	background-color: $distinctBlue;
+}
+.ql-editor .ql-bg-purple {
+	background-color: $distinctPurple;
+}
+.ql-editor .ql-color-white {
+	color: $white;
+}
+.ql-editor .ql-color-red {
+	color: $distinctRed;
+}
+.ql-editor .ql-color-orange {
+	color: $distinctOrange;
+}
+.ql-editor .ql-color-yellow {
+	color: $distinctYellow;
+}
+.ql-editor .ql-color-green {
+	color: $distinctGreen;
+}
+.ql-editor .ql-color-blue {
+	color: $distinctBlue;
+}
+.ql-editor .ql-color-purple {
+	color: $distinctPurple;
+}
+.ql-editor .ql-font-serif {
+	font-family: Georgia, Times New Roman, serif;
+}
+.ql-editor .ql-font-monospace {
+	font-family: Monaco, Courier New, monospace;
+}
+.ql-editor .ql-size-small {
+	font-size: 0.75em;
+}
+.ql-editor .ql-size-large {
+	font-size: 1.5em;
+}
+.ql-editor .ql-size-huge {
+	font-size: 2.5em;
+}
+.ql-editor .ql-direction-rtl {
+	direction: rtl;
+	text-align: inherit;
+}
+.ql-editor .ql-align-center {
+	text-align: center;
+}
+.ql-editor .ql-align-justify {
+	text-align: justify;
+}
+.ql-editor .ql-align-right {
+	text-align: right;
+}
+.ql-editor.ql-blank::before {
+	color: rgba(0,0,0,0.6);
+	content: attr(data-placeholder);
+	font-style: italic;
+	left: 0.9375em;
+	pointer-events: none;
+	position: absolute;
+	right: 0.9375em;
+}
+.ql-snow.ql-toolbar:after,
+.ql-snow .ql-toolbar:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	height: 1.5em;
+	padding: 0.1875em 0.3125em;
+	width: 1.75em;
+}
+.ql-snow.ql-toolbar button svg,
+.ql-snow .ql-toolbar button svg {
+	float: left;
+	height: 100%;
+}
+.ql-snow.ql-toolbar button:active:hover,
+.ql-snow .ql-toolbar button:active:hover {
+	outline: none;
+}
+.ql-snow.ql-toolbar input.ql-image[type=file],
+.ql-snow .ql-toolbar input.ql-image[type=file] {
+	display: none;
+}
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow .ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+	color: $darkGreen;
+}
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button:focus .ql-fill,
+.ql-snow .ql-toolbar button:focus .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+	fill: $darkGreen;
+}
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:focus .ql-stroke,
+.ql-snow .ql-toolbar button:focus .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+	stroke: $darkGreen;
+}
+@media (pointer: coarse) {
+	.ql-snow.ql-toolbar button:hover:not(.ql-active),
+	.ql-snow .ql-toolbar button:hover:not(.ql-active) {
+		color: $darkGray;
+	}
+	.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill,
+	.ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill,
+	.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
+	.ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
+		fill: $darkGray;
+	}
+	.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+	.ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+	.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
+	.ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
+		stroke: $darkGray;
+	}
+}
+.ql-snow {
+	box-sizing: border-box;
+}
+.ql-snow * {
+	box-sizing: border-box;
+}
+.ql-snow .ql-hidden {
+	display: none;
+}
+.ql-snow .ql-out-bottom,
+.ql-snow .ql-out-top {
+	visibility: hidden;
+}
+.ql-snow .ql-tooltip {
+	position: absolute;
+	transform: translateY(0.625em);
+}
+.ql-snow .ql-tooltip a {
+	cursor: pointer;
+	text-decoration: none;
+}
+.ql-snow .ql-tooltip.ql-flip {
+	transform: translateY(-0.625em);
+}
+.ql-snow .ql-formats {
+	display: inline-block;
+	vertical-align: middle;
+}
+.ql-snow .ql-formats:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+.ql-snow .ql-stroke {
+	fill: none;
+	stroke: $darkGray;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+.ql-snow .ql-stroke-miter {
+	fill: none;
+	stroke: $darkGray;
+	stroke-miterlimit: 10;
+	stroke-width: 2;
+}
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+	fill: $darkGray;
+}
+.ql-snow .ql-empty {
+	fill: none;
+}
+.ql-snow .ql-even {
+	fill-rule: evenodd;
+}
+.ql-snow .ql-thin,
+.ql-snow .ql-stroke.ql-thin {
+	stroke-width: 1;
+}
+.ql-snow .ql-transparent {
+	opacity: 0.4;
+}
+.ql-snow .ql-direction svg:last-child {
+	display: none;
+}
+.ql-snow .ql-direction.ql-active svg:last-child {
+	display: inline;
+}
+.ql-snow .ql-direction.ql-active svg:first-child {
+	display: none;
+}
+.ql-snow .ql-editor h1 {
+	font-size: 2em;
+}
+.ql-snow .ql-editor h2 {
+	font-size: 1.5em;
+}
+.ql-snow .ql-editor h3 {
+	font-size: 1.17em;
+}
+.ql-snow .ql-editor h4 {
+	font-size: 1em;
+}
+.ql-snow .ql-editor h5 {
+	font-size: 0.83em;
+}
+.ql-snow .ql-editor h6 {
+	font-size: 0.67em;
+}
+.ql-snow .ql-editor a {
+	text-decoration: underline;
+}
+.ql-snow .ql-editor blockquote {
+	border-left: 0.25em solid $lightGray;
+	margin-bottom: 0.3125em;
+	margin-top: 0.3125em;
+	padding-left: 1em;
+}
+.ql-snow .ql-editor code,
+.ql-snow .ql-editor pre {
+	background-color: $lightGray;
+	border-radius: $corners;
+}
+.ql-snow .ql-editor pre {
+	white-space: pre-wrap;
+	margin-bottom: 0.3125em;
+	margin-top: 0.3125em;
+	padding: 0.3125em 0.625em;
+}
+.ql-snow .ql-editor code {
+	font-size: 85%;
+	padding: 0.125em 0.25em;
+}
+.ql-snow .ql-editor pre.ql-syntax {
+	background-color: $black;
+	color: $white;
+	overflow: visible;
+}
+.ql-snow .ql-editor img {
+	max-width: 100%;
+}
+.ql-snow .ql-picker {
+	color: $darkGray;
+	display: inline-block;
+	float: left;
+	font-size: 0.875em;
+	font-weight: 500;
+	height: 1.5em;
+	position: relative;
+	vertical-align: middle;
+}
+.ql-snow .ql-picker-label {
+	cursor: pointer;
+	display: inline-block;
+	height: 100%;
+	padding-left: 0.5em;
+	padding-right: 0.125em;
+	position: relative;
+	width: 100%;
+}
+.ql-snow .ql-picker-label::before {
+	display: inline-block;
+	line-height: 1.375em;
+}
+.ql-snow .ql-picker-options {
+	background-color: $white;
+	display: none;
+	min-width: 100%;
+	padding: 0.25em 0.5em;
+	position: absolute;
+	white-space: nowrap;
+}
+.ql-snow .ql-picker-options .ql-picker-item {
+	cursor: pointer;
+	display: block;
+	padding-bottom: 0.3125em;
+	padding-top: 0.3125em;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+	color: $lightGray;
+	z-index: 2;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
+	fill: $lightGray;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+	stroke: $lightGray;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+	display: block;
+	margin-top: -0.0625em;
+	top: 100%;
+	z-index: 1;
+}
+.ql-snow .ql-color-picker,
+.ql-snow .ql-icon-picker {
+	width: 1.75em;
+}
+.ql-snow .ql-color-picker .ql-picker-label,
+.ql-snow .ql-icon-picker .ql-picker-label {
+	padding: 0.125em 0.25em;
+}
+.ql-snow .ql-color-picker .ql-picker-label svg,
+.ql-snow .ql-icon-picker .ql-picker-label svg {
+	right: 0.25em;
+}
+.ql-snow .ql-icon-picker .ql-picker-options {
+	padding: 0.25em 0em;
+}
+.ql-snow .ql-icon-picker .ql-picker-item {
+	height: 1.5em;
+	width: 1.5em;
+	padding: 0.125em 0.25em;
+}
+.ql-snow .ql-color-picker .ql-picker-options {
+	padding: 0.1875em 0.3125em;
+	width: 9.5em;
+}
+.ql-snow .ql-color-picker .ql-picker-item {
+	border: 0.0625em solid transparent;
+	float: left;
+	height: 1em;
+	margin: 0.125em;
+	padding: 0em;
+	width: 1em;
+}
+.ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg {
+	position: absolute;
+	margin-top: 0.5625em;
+	right: 0;
+	top: 50%;
+	width: 1.125em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-label]:not([data-label=''])::before {
+	content: attr(data-label);
+}
+.ql-snow .ql-picker.ql-header {
+	width: 6.125em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+	content: 'Normal';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+	content: 'Heading 1';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+	content: 'Heading 2';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+	content: 'Heading 3';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="4"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+	content: 'Heading 4';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="5"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+	content: 'Heading 5';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="6"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+	content: 'Heading 6';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+	font-size: 2em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+	font-size: 1.5em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+	font-size: 1.17em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+	font-size: 1em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+	font-size: 0.83em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+	font-size: 0.67em;
+}
+.ql-snow .ql-picker.ql-font {
+	width: 6.75em;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item::before {
+	content: 'Sans Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+	content: 'Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+	content: 'Monospace';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+	font-family: Georgia, Times New Roman, serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+	font-family: Monaco, Courier New, monospace;
+}
+.ql-snow .ql-picker.ql-size {
+	width: 6.125em;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+	content: 'Normal';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+	content: 'Small';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+	content: 'Large';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+	content: 'Huge';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+	font-size: 0.625em;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+	font-size: 1.125em;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+	font-size: 2em;
+}
+.ql-snow .ql-color-picker.ql-background .ql-picker-item {
+	background-color: $white;
+}
+.ql-snow .ql-color-picker.ql-color .ql-picker-item {
+	background-color: $black;
+}
+.ql-toolbar.ql-snow {
+	border: 0.0625em solid $lightGray;
+	box-sizing: border-box;
+	font-family: $fonts;
+	padding: 0.5em;
+}
+.ql-toolbar.ql-snow .ql-formats {
+	margin-right: 0.9375em;
+}
+.ql-toolbar.ql-snow .ql-picker-label {
+	border: 0.0625em solid transparent;
+}
+.ql-toolbar.ql-snow .ql-picker-options {
+	border: 0.0625em solid transparent;
+	box-shadow: rgba(0,0,0,0.2) 0 0.125em 0.5em;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+	border-color: $lightGray;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+	border-color: $lightGray;
+}
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item.ql-selected,
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item:hover {
+	border-color: $black;
+}
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+	border-top: 0em;
+}
+.ql-snow .ql-tooltip {
+	background-color: $white;
+	border: 0.0625em solid $lightGray;
+	box-shadow: 0em 0em 0.3125em $lightGray;
+	color: $darkGray;
+	padding: 0.3125em 0.75em;
+	white-space: nowrap;
+}
+.ql-snow .ql-tooltip::before {
+	content: "Visit URL:";
+	line-height: 1.625em;
+	margin-right: 0.5em;
+}
+.ql-snow .ql-tooltip input[type=text] {
+	display: none;
+	border: 0.0625em solid $lightGray;
+	font-size: 0.8125em;
+	height: 1.625em;
+	margin: 0em;
+	padding: 0.1875em 0.3125em;
+	width: 10.625em;
+}
+.ql-snow .ql-tooltip a.ql-preview {
+	display: inline-block;
+	max-width: 12.5em;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	vertical-align: top;
+}
+.ql-snow .ql-tooltip a.ql-action::after {
+	border-right: 0.0625em solid $lightGray;
+	content: 'Edit';
+	margin-left: 1em;
+	padding-right: 0.5em;
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+	content: 'Remove';
+	margin-left: 0.5em;
+}
+.ql-snow .ql-tooltip a {
+	line-height: 1.625em;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-preview,
+.ql-snow .ql-tooltip.ql-editing a.ql-remove {
+	display: none;
+}
+.ql-snow .ql-tooltip.ql-editing input[type=text] {
+	display: inline-block;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+	border-right: 0em;
+	content: 'Save';
+	padding-right: 0em;
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+	content: "Enter link:";
+}
+.ql-snow .ql-tooltip[data-mode=formula]::before {
+	content: "Enter formula:";
+}
+.ql-snow .ql-tooltip[data-mode=video]::before {
+	content: "Enter video:";
+}
+.ql-snow a {
+	color: $darkGreen;
+}
+.ql-container.ql-snow {
+	border: 0.0625em solid $lightGray;
+}
+
+/*
+PrimeNG node_modules/primeng/resources/themes/_theme.scss version 7.1.0
+modified with additional variables
+*/
+@mixin hover-element() {
+	border-color: $stateHoverBorderColor;
+	background-color: $stateHoverBgColor;
+	color: $stateHoverTextColor;
+	a {
+		color: $stateHoverTextColor;
+	}
+}
+
+@mixin icon-override($icon) {
+	background: none !important;
+	font-family: 'primeicons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-indent: 0px !important;
+	text-align: center;
+	&:before {
+		content: $icon;
+	}
+}
+
+.ui-widget {
+	font-family:  $fontFamily;
+	font-size: $fontSize;
+	input, select, textarea, button {
+		font-family:  $fontFamily;
+		font-size: $fontSize;
+	}
+	:active {
+		outline: none;
+	}
+}
+
+.ui-widget-content {
+	border: $contentBorderWidth solid $contentBorderColor;
+	background-color: $contentBgColor;
+	color: $contentTextColor;
+	a {
+		color: $contentTextColor;
+	}
+}
+
+.ui-widget-header {
+	border: $headerBorderWidth solid $headerBorderColor;
+	background-color: $headerBgColor;
+	color: $headerTextColor;
+	font-weight: $headerFontWeight;
+	a {
+		color: $headerTextColor;
+	}
+}
+
+.ui-widget-overlay {
+	background-color: $darkGray;
+	opacity: .50;
+	filter:Alpha(Opacity=50);
+}
+
+.ui-state-default {
+	border: $stateDefaultBorderWidth solid $stateDefaultBorderColor;
+	background-color: $stateDefaultBgColor;
+	color: $stateDefaultTextColor;
+	a {
+		color: $stateDefaultTextColor ;
+	}
+}
+
+.ui-state-active {
+	border-color: $stateActiveBorderColor;
+	background-color: $stateActiveBgColor;
+	color: $stateActiveTextColor;
+	a {
+		color: $stateActiveTextColor;
+	}
+}
+
+.ui-state-highlight  {
+	border-color: $stateHighlightBorderColor;
+	background-color: $stateHighlightBgColor;
+	color: $stateHighlightTextColor;
+	a {
+		color: $stateHighlightTextColor;
+	}
+}
+
+.ui-state-focus {
+	border-color: $stateFocusBorderColor;
+	background-color: $stateFocusBgColor;
+	color: $stateFocusTextColor;
+	a {
+		color: $stateFocusTextColor;
+	}
+}
+
+.ui-state-error {
+	border-color: $stateErrorBorderColor;
+	background-color: $stateErrorBgColor;
+	color: $stateErrorTextColor;
+	a {
+		color: $stateErrorTextColor;
+	}
+}
+
+.ui-state-disabled,
+.ui-widget:disabled {
+	opacity: $disabledOpacity;
+	filter: Alpha(Opacity= $disabledOpacity * 100);
+	background-image: none;
+	cursor: default !important;
+	* {
+		cursor: default !important;
+	}
+}
+
+/* Forms */
+.ui-inputtext {
+	background-color: $inputBgColor;
+	color: $inputTextColor;
+}
+
+.ui-inputtext:enabled:hover {
+	border-color: $stateHoverBorderColor;
+}
+
+.ui-inputtext.ui-state-focus,
+.ui-inputtext:focus {
+	outline: 0 none;
+	border-color: $stateFocusBorderColor;
+	-moz-box-shadow: 0px 0px 5px $stateFocusBorderColor;
+	-webkit-box-shadow: 0px 0px 5px $stateFocusBorderColor;
+	box-shadow: 0px 0px 5px $stateFocusBorderColor;
+}
+
+.ui-inputgroup {
+	.ui-inputgroup-addon  {
+		border-color: $stateDefaultBorderColor;
+		background-color: lighten($stateDefaultBorderColor, 10%);
+		color: $inputGroupTextColor;
+		&:first-child {
+			border-top-left-radius: $borderRadius;
+			border-bottom-left-radius: $borderRadius;
+		}
+		&:last-child {
+			border-top-right-radius: $borderRadius;
+			border-bottom-right-radius: $borderRadius;
+		}
+	}
+	.ui-button {
+		&:first-child {
+			border-top-left-radius: $borderRadius;
+			border-bottom-left-radius: $borderRadius;
+		}
+
+		&:last-child {
+			border-top-right-radius: $borderRadius;
+			border-bottom-right-radius: $borderRadius;
+		}
+	}
+}
+
+.ui-float-label input.ng-dirty.ng-invalid ~ label {
+	color: $stateErrorTextColor;
+}
+
+.ui-autocomplete {
+	.ui-autocomplete-multiple-container:not(.ui-state-disabled) {
+		&:hover {
+			border-color: $stateHoverBorderColor;
+		}
+		&.ui-state-focus {
+			border-color: $stateFocusBorderColor;
+		}
+	}
+}
+
+.ui-chips {
+	> ul:not(.ui-state-disabled) {
+		&:hover {
+			border-color: $stateHoverBorderColor;
+		}
+		&.ui-state-focus {
+			border-color: $stateFocusBorderColor;
+		}
+	}
+}
+
+.ui-button:focus,
+.ui-button:enabled:hover,
+.ui-fileupload-choose:not(.ui-state-disabled):hover {
+	outline: 0 none;
+	@include hover-element();
+}
+
+.ui-button:enabled:active,
+.ui-fileupload-choose:not(.ui-state-disabled):active {
+	border-color: $stateActiveBorderColor;
+	background-color: $stateActiveBgColor;
+	color: $stateActiveTextColor;
+}
+
+.ui-chkbox-box:not(.ui-state-disabled):not(.ui-state-active):hover {
+	@include hover-element();
+}
+
+.ui-radiobutton-box:not(.ui-state-disabled):not(.ui-state-active):hover {
+	@include hover-element();
+}
+
+.ui-dropdown .ui-dropdown-clear-icon {
+	color: lighten($inputTextColor, 40%);
+}
+
+.ui-dropdown:not(.ui-state-disabled):hover {
+	@include hover-element();
+}
+
+.ui-dropdown-panel .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+	@include hover-element();
+}
+
+.ui-listbox {
+	.ui-listbox-header {
+		.ui-listbox-filter-container {
+			.fa {
+					color: $inputTextColor;
+			}
+		}
+	}
+	&:not(.ui-state-disabled) {
+		.ui-listbox-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+			@include hover-element();
+		}
+		.ui-listbox-item.ui-state-disabled .ui-chkbox-box:hover {
+			background-color: $inputBgColor;
+			border-color: $stateDefaultBorderColor;
+		}
+	}
+	&.ui-state-disabled {
+		.ui-chkbox-box:not(.ui-state-active):hover {
+			border-color: $stateDefaultBorderColor;
+			background-color: $stateDefaultBgColor;
+			color: $stateDefaultTextColor;
+		}
+	}
+}
+
+.ui-multiselect:not(.ui-state-disabled):hover {
+	@include hover-element();
+}
+
+.ui-multiselect-panel .ui-multiselect-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+	@include hover-element();
+}
+
+.ui-multiselect-panel .ui-multiselect-item.ui-state-disabled:hover .ui-chkbox-box {
+	background-color: $inputBgColor;
+	border-color: $stateDefaultBorderColor;
+}
+
+.ui-multiselect-panel .ui-multiselect-close {
+	color: $headerIconTextColor;
+}
+
+.ui-multiselect-panel .ui-multiselect-filter-container .fa {
+	color: $inputTextColor;
+}
+
+.ui-spinner:not(.ui-state-disabled) .ui-spinner-button:enabled:hover {
+	@include hover-element();
+}
+
+.ui-spinner:not(.ui-state-disabled) .ui-spinner-button:enabled:active {
+	border-color: $stateActiveBorderColor;
+	background-color: $stateActiveBgColor;
+	color: $stateActiveTextColor;
+}
+
+.ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover {
+	@include hover-element();
+}
+
+.ui-togglebutton:not(.ui-state-disabled):not(.ui-state-active):hover {
+	@include hover-element();
+}
+
+.ui-paginator a:not(.ui-state-disabled):not(.ui-state-active):hover {
+	@include hover-element();
+}
+
+.ui-paginator a {
+	color: $stateDefaultTextColor;
+}
+
+.ui-datatable {
+	.ui-rowgroup-header a {
+		color: $headerTextColor;
+	}
+	.ui-sortable-column:not(.ui-state-active):hover {
+		background-color: $stateHoverBgColor;
+		color: $stateHoverTextColor;
+	}
+	.ui-row-toggler {
+		color: $contentTextColor;
+	}
+	tbody.ui-datatable-hoverable-rows {
+		> tr.ui-widget-content:not(.ui-state-highlight):hover {
+			cursor: pointer;
+			background-color: $stateHoverBgColor;
+			color: $stateHoverTextColor;
+		}
+	}
+}
+
+.ui-orderlist {
+	.ui-orderlist-item:not(.ui-state-highlight):hover {
+		@include hover-element();
+	}
+}
+
+.ui-picklist {
+	.ui-picklist-item:not(.ui-state-disabled):not(.ui-state-highlight):hover {
+		@include hover-element();
+	}
+	.ui-picklist-droppoint-highlight {
+		border-color: $stateHighlightBorderColor;
+		background-color: $stateHighlightBgColor;
+		color: darken($contentTextColor,1%);
+		a {
+			color: darken($contentTextColor,1%);
+		}
+	}
+	.ui-picklist-highlight {
+		border-color: $stateHighlightBorderColor;
+		color: darken($contentTextColor,1%);
+		a {
+			color: darken($contentTextColor,1%);
+		}
+	}
+}
+
+.ui-tree {
+	&.ui-treenode-dragover {
+		border-color: $stateHighlightBorderColor;
+	}
+	.ui-treenode-content {
+		&.ui-treenode-selectable {
+			.ui-treenode-label:not(.ui-state-highlight):hover {
+					@include hover-element();
+			}
+		}
+		&.ui-treenode-dragover {
+			background-color: $stateActiveBgColor;
+			color: $stateActiveTextColor;
+		}
+	}
+	&.ui-tree-horizontal {
+		.ui-treenode-content.ui-treenode-selectable {
+			.ui-treenode-label:not(.ui-state-highlight):hover {
+					background-color: inherit;
+					color: inherit;
+			}
+			&:not(.ui-state-highlight):hover {
+					@include hover-element();
+			}
+		}
+	}
+}
+
+.ui-organizationchart {
+	.ui-organizationchart-node-content {
+		&.ui-organizationchart-selectable-node:not(.ui-state-highlight):hover {
+			@include hover-element();
+		}
+	}
+}
+
+.ui-accordion {
+	.ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover {
+		@include hover-element();
+	}
+}
+
+.ui-fieldset {
+	&.ui-fieldset-toggleable {
+		.ui-fieldset-legend:hover {
+			@include hover-element();
+		}
+	}
+}
+
+.ui-panel {
+	.ui-panel-titlebar {
+		.ui-panel-titlebar-icon:hover {
+			@include hover-element();
+		}
+	}
+}
+
+.ui-tabview {
+	.ui-tabview-nav {
+		li {
+			&:not(.ui-state-active):not(.ui-state-disabled):hover {
+					@include hover-element();
+			}
+		}
+	}
+}
+
+.ui-dialog {
+	.ui-dialog-titlebar-icon {
+		color: $headerTextColor;
+		&:hover {
+			@include hover-element();
+		}
+	}
+}
+
+.ui-sidebar {
+	.ui-sidebar-close {
+		color: $headerTextColor;
+		&:hover {
+			@include hover-element();
+		}
+	}
+}
+
+.ui-overlaypanel {
+	.ui-overlaypanel-close:hover {
+		@include hover-element();
+	}
+}
+
+.ui-inplace {
+	.ui-inplace-display:hover {
+		@include hover-element();
+	}
+}
+
+.ui-breadcrumb {
+	a {
+		color: $headerTextColor;
+	}
+}
+
+.ui-menuitem {
+	.ui-menuitem-link {
+		color: $contentTextColor;
+		&:hover {
+			@include hover-element();
+			border-color: transparent;
+		}
+	}
+	&.ui-menuitem-active {
+		> .ui-menuitem-link {
+			@include hover-element();
+			border-color: transparent;
+		}
+	}
+}
+
+.ui-tabmenu {
+	.ui-tabmenu-nav {
+		li:not(.ui-state-active):hover {
+			@include hover-element();
+		}
+	}
+}
+
+.ui-steps {
+	.ui-steps-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+		@include hover-element();
+	}
+}
+
+.ui-panelmenu {
+	.ui-panelmenu-header {
+		&:not(.ui-state-active):hover {
+			@include hover-element();
+			border-color: $stateDefaultBorderColor;
+			a {
+					color: $stateHoverTextColor;
+			}
+		}
+		&.ui-state-active {
+			a {
+					color: $stateActiveTextColor;
+			}
+		}
+	}
+	.ui-panelmenu-content {
+		.ui-menuitem-link {
+			color: $contentTextColor;
+			&:hover {
+					@include hover-element();
+					border-color: transparent;
+			}
+		}
+	}
+}
+
+.ui-datepicker {
+	.ui-datepicker-header {
+		a {
+			color: $headerTextColor;
+			&:hover {
+					@include hover-element();
+			}
+		}
+	}
+	.ui-datepicker-calendar {
+		td:not(.ui-state-disabled) {
+			a:hover {
+					@include hover-element();
+			}
+		}
+	}
+	.ui-monthpicker {
+		.ui-monthpicker-month:hover {
+			@include hover-element();
+		}
+	}
+}
+
+.fc {
+	.fc-toolbar {
+		.fc-prev-button {
+			.ui-icon-circle-triangle-w {
+					margin-top: .3em;
+					@include icon_override("\e900");
+			}
+		}
+		.fc-next-button {
+			.ui-icon-circle-triangle-e {
+					margin-top: .3em;
+					@include icon_override("\e901");
+			}
+		}
+	}
+}
+
+.ui-rating {
+	a {
+		color: $inputTextColor;
+	}
+}
+
+.ui-organizationchart {
+	.ui-organizationchart-line-down {
+		background-color: darken($contentBorderColor, 10%);
+	}
+	.ui-organizationchart-line-left {
+		border-right: 1px solid darken($contentBorderColor, 10%);
+	}
+	.ui-organizationchart-line-top {
+		border-top: 1px solid darken($contentBorderColor, 10%);
+	}
+	.ui-organizationchart-node-content {
+		border-color: darken($contentBorderColor, 10%);
+	}
+	.ui-organizationchart-node-content .ui-node-toggler {
+		color: darken($contentBorderColor, 10%);
+	}
+}
+
+/* TurboTable */
+.ui-table {
+	.ui-table-thead > tr > th,
+	.ui-table-tfoot > tr > td {
+		background-color: $headerBgColor;
+		border: 1px solid $headerBorderColor;
+		color: $headerTextColor;
+	}
+	.ui-table-tbody > tr {
+		background-color: $contentBgColor;
+		color: $contentTextColor;
+
+		> td {
+			border: 1px solid $contentBorderColor;
+			background-color: inherit;
+		}
+
+		&.ui-state-highlight {
+			background-color: $stateHighlightBgColor;
+			color: $stateHighlightTextColor;
+		}
+
+		&.ui-contextmenu-selected {
+			background-color: lighten($stateHighlightBgColor, 20%);
+			color: $stateHighlightTextColor;
+		}
+	}
+	.ui-sortable-column {
+		.ui-sortable-column-icon {
+			color: $headerTextColor;
+		}
+
+		&.ui-state-highlight {
+			background-color: $stateHighlightBgColor;
+			color: $stateHighlightTextColor;
+
+			.ui-sortable-column-icon {
+					color: $stateHighlightTextColor;
+			}
+		}
+
+		&:not(.ui-state-highlight):hover {
+			background-color: $stateHoverBgColor;
+			color: $stateHoverTextColor;
+
+			.ui-sortable-column-icon {
+					color: $stateHoverTextColor;
+			}
+		}
+	}
+	&.ui-table-hoverable-rows {
+		.ui-table-tbody > tr:not(.ui-state-highlight):not(.ui-contextmenu-selected):hover {
+			cursor: pointer;
+			background-color: $stateHoverBgColor;
+			color: $stateHoverTextColor;
+		}
+	}
+}
+
+@media ( max-width: 35em ) {
+	.ui-table-responsive .ui-table-tbody > tr {
+		border-top: 1px solid $contentBorderColor;
+		border-bottom: 1px solid $contentBorderColor;
+	}
+}
+
+/* Row Reorder */
+.ui-table .ui-table-tbody > tr.ui-table-dragpoint-top > td {
+	box-shadow: inset 0 2px 0 0 $stateHighlightBgColor;
+}
+
+.ui-table .ui-table-tbody > tr.ui-table-dragpoint-bottom > td {
+	box-shadow: inset 0 -2px 0 0 $stateHighlightBgColor;
+}
+
+/* TurboTable */
+.ui-treetable {
+	.ui-treetable-thead > tr > th,
+	.ui-treetable-tfoot > tr > td {
+		background-color: $headerBgColor;
+		border: 1px solid $headerBorderColor;
+		color: $headerTextColor;
+	}
+	.ui-treetable-tbody > tr {
+		background-color: $contentBgColor;
+		color: $contentTextColor;
+		> td {
+			border: 1px solid $contentBorderColor;
+			background-color: inherit;
+		}
+		&.ui-state-highlight {
+			background-color: $stateHighlightBgColor;
+			color: $stateHighlightTextColor;
+			.ui-treetable-toggler {
+					color: $stateHighlightTextColor;
+			}
+		}
+		&.ui-contextmenu-selected {
+			background-color: lighten($stateHighlightBgColor, 20%);
+			color: $stateHighlightTextColor;
+			.ui-treetable-toggler {
+					color: $stateHighlightTextColor;
+			}
+		}
+		.ui-treetable-toggler {
+			color: $contentTextColor;
+		}
+	}
+	.ui-sortable-column {
+		.ui-sortable-column-icon {
+			color: $headerTextColor;
+		}
+		&.ui-state-highlight {
+			background-color: $stateHighlightBgColor;
+			color: $stateHighlightTextColor;
+			.ui-sortable-column-icon {
+					color: $stateHighlightTextColor;
+			}
+		}
+		&:not(.ui-state-highlight):hover {
+			background-color: $stateHoverBgColor;
+			color: $stateHoverTextColor;
+			.ui-sortable-column-icon {
+					color: $stateHoverTextColor;
+			}
+		}
+	}
+	&.ui-treetable-hoverable-rows {
+		.ui-treetable-tbody > tr:not(.ui-state-highlight):not(.ui-contextmenu-selected):hover {
+			cursor: pointer;
+			background-color: $stateHoverBgColor;
+			color: $stateHoverTextColor;
+		}
+	}
+}
+
+@media ( max-width: 35em ) {
+	.ui-treetable-responsive .ui-treetable-tbody > tr {
+		border-top: 1px solid $contentBorderColor;
+		border-bottom: 1px solid $contentBorderColor;
+	}
+}
+
+/* Row Reorder */
+.ui-treetable .ui-treetable-tbody > tr.ui-treetable-dragpoint-top > td {
+	box-shadow: inset 0 2px 0 0 $stateHighlightBgColor;
+}
+
+.ui-treetable .ui-treetable-tbody > tr.ui-treetable-dragpoint-bottom > td {
+	box-shadow: inset 0 -2px 0 0 $stateHighlightBgColor;
+}
+
+/* InputSwitch */
+.ui-inputswitch {
+	.ui-inputswitch-slider {
+		-webkit-transition: background-color .3s, box-shadow .2s;
+		transition: background-color .3s, box-shadow .2s;
+		background: #cccccc;
+
+		&:before {
+			background-color: #ffffff;
+		}
+	}
+	&.ui-inputswitch-focus {
+		.ui-inputswitch-slider {
+			-moz-box-shadow: 0px 0px 5px $stateFocusBorderColor;
+			-webkit-box-shadow: 0px 0px 5px $stateFocusBorderColor;
+			box-shadow: 0px 0px 5px $stateFocusBorderColor;
+		}
+	}
+	&:not(.ui-state-disabled):hover {
+		.ui-inputswitch-slider {
+			background-color: #b7b7b7;
+		}
+	}
+	&.ui-inputswitch-checked {
+		.ui-inputswitch-slider {
+			background-color: #186ba0;
+		}
+		&:not(.ui-state-disabled):hover {
+			.ui-inputswitch-slider {
+					background-color: darken(#186ba0, 10%);
+			}
+		}
+	}
+}
+
+/* Validation */
+.ui-inputtext.ng-dirty.ng-invalid,
+p-dropdown.ng-dirty.ng-invalid > .ui-dropdown,
+p-autocomplete.ng-dirty.ng-invalid > .ui-autocomplete > .ui-inputtext,
+p-calendar.ng-dirty.ng-invalid > .ui-calendar > .ui-inputtext,
+p-chips.ng-dirty.ng-invalid > .ui-inputtext,
+p-inputmask.ng-dirty.ng-invalid > .ui-inputtext,
+p-checkbox.ng-dirty.ng-invalid .ui-chkbox-box,
+p-radiobutton.ng-dirty.ng-invalid .ui-radiobutton-box,
+p-inputswitch.ng-dirty.ng-invalid .ui-inputswitch,
+p-listbox.ng-dirty.ng-invalid .ui-inputtext,
+p-multiselect.ng-dirty.ng-invalid > .ui-multiselect,
+p-spinner.ng-dirty.ng-invalid > .ui-inputtext,
+p-selectbutton.ng-dirty.ng-invalid .ui-button,
+p-togglebutton.ng-dirty.ng-invalid .ui-button {
+	border-bottom-color: $invalidInputBorderColor;
+}
+
+/* Cornering */
+.ui-corner-tl { -moz-border-radius-topleft: $borderRadius; -webkit-border-top-left-radius: $borderRadius; border-top-left-radius: $borderRadius; }
+.ui-corner-tr { -moz-border-radius-topright: $borderRadius; -webkit-border-top-right-radius: $borderRadius; border-top-right-radius: $borderRadius; }
+.ui-corner-bl { -moz-border-radius-bottomleft: $borderRadius; -webkit-border-bottom-left-radius: $borderRadius; border-bottom-left-radius: $borderRadius; }
+.ui-corner-br { -moz-border-radius-bottomright: $borderRadius; -webkit-border-bottom-right-radius: $borderRadius; border-bottom-right-radius: $borderRadius; }
+.ui-corner-top { -moz-border-radius-topleft: $borderRadius; -webkit-border-top-left-radius: $borderRadius; border-top-left-radius: $borderRadius; -moz-border-radius-topright: $borderRadius; -webkit-border-top-right-radius: $borderRadius; border-top-right-radius: $borderRadius; }
+.ui-corner-bottom { -moz-border-radius-bottomleft: $borderRadius; -webkit-border-bottom-left-radius: $borderRadius; border-bottom-left-radius: $borderRadius; -moz-border-radius-bottomright: $borderRadius; -webkit-border-bottom-right-radius: $borderRadius; border-bottom-right-radius: $borderRadius; }
+.ui-corner-right {  -moz-border-radius-topright: $borderRadius; -webkit-border-top-right-radius: $borderRadius; border-top-right-radius: $borderRadius; -moz-border-radius-bottomright: $borderRadius; -webkit-border-bottom-right-radius: $borderRadius; border-bottom-right-radius: $borderRadius; }
+.ui-corner-left { -moz-border-radius-topleft: $borderRadius; -webkit-border-top-left-radius: $borderRadius; border-top-left-radius: $borderRadius; -moz-border-radius-bottomleft: $borderRadius; -webkit-border-bottom-left-radius: $borderRadius; border-bottom-left-radius: $borderRadius; }
+.ui-corner-all { -moz-border-radius: $borderRadius; -webkit-border-radius: $borderRadius; border-radius: $borderRadius; }

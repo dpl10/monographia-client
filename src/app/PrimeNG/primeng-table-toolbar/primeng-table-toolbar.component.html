@@ -1,0 +1,53 @@
+<p-toolbar>
+	<div class="ui-toolbar-group-left">
+		<p-button *ngIf="this.configuration.detailButton.visable === true" (onClick)="this.primeNGToolbarService.clickDetail()" class="toolbarButton" [disabled]="this.configuration.detailButton.disable">
+			<app-fa-expand-arrows-alt [container]="true" size="2x"></app-fa-expand-arrows-alt>
+		</p-button>
+		<p-button *ngIf="this.configuration.newButton.visable === true" (onClick)="this.primeNGToolbarService.clickNew()" class="toolbarButton" [disabled]="this.configuration.newButton.disable">
+			<app-fa-plus [container]="true" size="2x"></app-fa-plus>
+		</p-button>
+		<p-button *ngIf="this.configuration.editButton.visable === true" (onClick)="this.primeNGToolbarService.clickEdit()" class="toolbarButton" [disabled]="this.configuration.editButton.disable">
+			<app-fa-edit [container]="true" size="2x"></app-fa-edit>
+		</p-button>
+		<p-button *ngIf="this.configuration.copyButton.visable === true" (onClick)="this.primeNGToolbarService.clickCopy()" class="toolbarButton" [disabled]="this.configuration.copyButton.disable">
+			<app-fa-clone [container]="true" size="2x"></app-fa-clone>
+		</p-button>
+		<p-button *ngIf="this.configuration.deleteButton.visable === true" (onClick)="this.primeNGToolbarService.clickDelete()" class="toolbarButton" [disabled]="this.configuration.deleteButton.disable">
+			<app-fa-minus [container]="true" size="2x"></app-fa-minus>
+		</p-button>
+		<p-button *ngIf="this.configuration.saveButton.visable === true" (onClick)="this.primeNGToolbarService.clickSave()" class="toolbarButton" [disabled]="this.configuration.saveButton.disable">
+			<app-fa-upload [container]="true" size="2x"></app-fa-upload>
+		</p-button>
+		<p-button *ngIf="this.configuration.graphButton.visable === true" (onClick)="this.primeNGToolbarService.clickGraph()" class="toolbarButton" [disabled]="this.configuration.graphButton.disable">
+			<app-fa-chart-bar [container]="true" size="2x"></app-fa-chart-bar>
+		</p-button>
+		<p-button *ngIf="this.configuration.tableButton.visable === true" (onClick)="this.primeNGToolbarService.clickTable()" class="toolbarButton" [disabled]="this.configuration.tableButton.disable">
+			<app-fa-table [container]="true" size="2x"></app-fa-table>
+		</p-button>
+		<p-button *ngIf="this.configuration.passwordButton.visable === true" (onClick)="this.primeNGToolbarService.clickPassword()" class="toolbarButton" [disabled]="this.configuration.passwordButton.disable">
+			<app-fa-key [container]="true" size="2x"></app-fa-key>
+		</p-button>
+	</div>
+	<div class="ui-toolbar-group-right">
+		<app-primeng-autocomplete [searchItem]="table" size="2x" (input)="pTable.filterGlobal(flatten($event.target.value), 'contains')"></app-primeng-autocomplete>
+	</div>
+</p-toolbar>
+<p-table #pTable [columns]="columns" [value]="itemData" autoLayout="true" alwaysShowPaginator="false" dataKey="id" [globalFilterFields]="['TableSearchIndex']" selectionMode="single" (onRowSelect)="onRowSelect($event.data)">
+	<ng-template pTemplate="caption">
+	</ng-template>
+	<ng-template pTemplate="header" let-columns>
+		<tr>
+			<th *ngFor="let c of columns" [pSortableColumn]="c.field">
+				<div [innerHTML]="c.title"></div>
+				<p-sortIcon [field]="c.field"></p-sortIcon>
+			</th>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-itemData let-columns="columns">
+		<tr [pSelectableRow]="itemData">
+			<td *ngFor="let c of columns">
+				<div [innerHTML]="itemData[c.field]"></div>
+			</td>
+		</tr>
+	</ng-template>
+</p-table>

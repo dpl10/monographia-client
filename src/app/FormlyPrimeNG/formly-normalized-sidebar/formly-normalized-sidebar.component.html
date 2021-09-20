@@ -1,0 +1,15 @@
+<p-sidebar [dismissible]=false [(visible)]="visible" [showCloseIcon]="false" appendTo="body" blockScroll="true" position="right" styleClass="ui-sidebar-lg">
+	<div class="formDescription">
+		<p-button (onClick)="this.formlyNormalizedWrapperService.clickSave()" class="iconButton" [disabled]="disableSave">
+			<app-fa-save [container]="true" size="lg"></app-fa-save>
+		</p-button>
+		<div class="formDescriptionText" [translate]="'i18n.saveButton'"></div>
+	</div>
+	<div class="formDescription">
+		<p-button (onClick)="this.formlyNormalizedWrapperService.setVisible(false)" class="iconButton">
+			<app-fa-angle-double-right [container]="true" size="lg"></app-fa-angle-double-right>
+		</p-button>
+		<div class="formDescriptionText" [translate]="'i18n.closeButton'"></div>
+	</div>
+	<app-normalized-form></app-normalized-form>
+</p-sidebar>

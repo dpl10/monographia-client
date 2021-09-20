@@ -1,0 +1,9 @@
+<div>
+	<p-autoComplete
+		(completeMethod)="search($event.query)"
+		[placeholder]="'i18n.search' | translate"
+		[suggestions]="suggestions"
+		minLength="3"
+	></p-autoComplete>
+	<app-fa-search [container]="false" [size]="size"></app-fa-search>
+</div>

@@ -1,0 +1,12 @@
+<div [innerHTML]="'i18n.utilityScientificNameText' | translate"></div>
+<p-panel header="{{'i18n.inputText' | translate}}">
+	<textarea pInputTextarea [(ngModel)]="inputText"></textarea>
+	<button pButton type="button" label="{{'i18n.extractScientificNames' | translate}}" (click)="processText()"></button>
+</p-panel>
+<p-panel header="{{'i18n.outputText' | translate}}">
+	<ul style="list-style-type:none;">
+		<li *ngFor="let o of outputText">
+			{{ o }}
+		</li>
+	</ul>
+</p-panel>

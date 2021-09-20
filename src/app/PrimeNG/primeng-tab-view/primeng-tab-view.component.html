@@ -1,0 +1,12 @@
+<div class="vspacer">
+	<p-tabView>
+		<p-tabPanel [header]="tab.title | translate" *ngFor="let tab of tabs; let i = index" [selected]="i == 0">
+			<div [ngSwitch]="tab.component">
+				<div *ngSwitchCase="'aboutUtility'"><app-about-utility></app-about-utility></div>
+				<div *ngSwitchCase="'geography'"><app-geography></app-geography></div>
+				<div *ngSwitchCase="'scientificName'"><app-scientific-name></app-scientific-name></div>
+				<div *ngSwitchDefault><app-page-not-constructed></app-page-not-constructed></div>
+			</div>
+		</p-tabPanel>
+	</p-tabView>
+</div>

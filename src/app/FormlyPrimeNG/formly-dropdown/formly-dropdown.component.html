@@ -1,0 +1,17 @@
+<p-dropdown
+	(onChange)="onChange($event.value)"
+	[class.ng-dirty]="showError"
+	[emptyFilterMessage]="'i18n.noResult' | translate"
+	[filter]="true"
+	[formControl]="formControl"
+	[formlyAttributes]="field"
+	[options]="to.options | formlySelectOptions:field | async"
+	[placeholder]="to.placeholder | translate"
+	[showClear]="false"
+	dataKey="value"
+	filterBy="label"
+	optionLabel="label"
+	required="to.required"
+	scrollHeight="30ex"
+	styleClass="formlyDropDown"
+></p-dropdown>

@@ -1,0 +1,11 @@
+<ng-container *ngIf="container; else uncontained">
+	<span *ngIf="container===true" [ngClass]="{
+		'formIconContainer': size==='lg',
+		'toolbarIconContainer': size==='2x'
+	}">
+		<ng-content *ngTemplateOutlet="uncontained"></ng-content>
+	</span>
+</ng-container>
+<ng-template #uncontained>
+	<ng-content></ng-content>
+</ng-template>

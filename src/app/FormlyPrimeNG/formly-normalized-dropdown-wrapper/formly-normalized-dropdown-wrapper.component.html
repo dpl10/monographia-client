@@ -1,0 +1,25 @@
+<ng-container #fieldComponent></ng-container>
+<div class="formDescription">
+	<p-button (onClick)="editClick(model)" class="formArrayButtonRight" [disabled]="disableEdit">
+		<div [ngSwitch]="to.icon">
+			<div *ngSwitchCase="'city'"><app-fa-cityEdit [container]="true" size="lg"></app-fa-cityEdit></div>
+			<div *ngSwitchCase="'periodical'"><app-fa-file-signature [container]="true" size="lg"></app-fa-file-signature></div>
+			<div *ngSwitchCase="'publisher'"><app-fa-bookAdd [container]="true" size="lg"></app-fa-bookAdd></div>
+			<div *ngSwitchCase="'school'"><app-fa-universityEdit [container]="true" size="lg"></app-fa-universityEdit></div>
+			<div *ngSwitchDefault><app-fa-edit [container]="true" size="lg"></app-fa-edit></div>
+		</div>
+	</p-button>
+	<div class="formDescriptionText" [translate]="'i18n.repeatEditInstructions'" [translateParams]="{value: to.editNoun | translate}"></div>
+</div>
+<div class="formDescription">
+	<p-button (onClick)="newClick()" class="formArrayButtonRight">
+		<div [ngSwitch]="to.icon">
+			<div *ngSwitchCase="'city'"><app-fa-cityAdd [container]="true" size="lg"></app-fa-cityAdd></div>
+			<div *ngSwitchCase="'periodical'"><app-fa-file-medical [container]="true" size="lg"></app-fa-file-medical></div>
+			<div *ngSwitchCase="'publisher'"><app-fa-bookEdit [container]="true" size="lg"></app-fa-bookEdit></div>
+			<div *ngSwitchCase="'school'"><app-fa-universityAdd [container]="true" size="lg"></app-fa-universityAdd></div>
+			<div *ngSwitchDefault><app-fa-plus-square [container]="true" size="lg"></app-fa-plus-square></div>
+		</div>
+	</p-button>
+	<div class="formDescriptionText" [translate]="'i18n.repeatAddNewInstructions'" [translateParams]="{value: to.addNewNoun | translate}"></div>
+</div>

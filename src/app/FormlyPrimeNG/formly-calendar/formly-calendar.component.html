@@ -1,0 +1,12 @@
+<p-calendar
+	[class.ng-dirty]="showError"
+	[formControl]="formControl"
+	[formlyAttributes]="field"
+	[locale]="calendarLocale"
+	[placeholder]="to.placeholder | translate"
+	[required]="to.required"
+	[yearRange]="(yearRange)"
+	dateFormat="yy MM d"
+	monthNavigator="true"
+	yearNavigator="true"
+></p-calendar>

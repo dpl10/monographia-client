@@ -1,0 +1,47 @@
+{
+	"angularCompilerOptions": {
+		"debug": true,
+		"fullTemplateTypeCheck": true,
+		"strictInjectionParameters": true
+	},
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "./",
+		"declaration": false,
+		"emitDecoratorMetadata": true,
+		"downlevelIteration": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"lib": [
+			"es2020",
+			"dom"
+		],
+		"module": "es2020",
+		"moduleResolution": "node",
+		"outDir": "./dist/out-tsc",
+		"paths": {
+			"@monographia/*": [
+				"src/app/*"
+			],
+			"@monographiaAssets/*": [
+				"src/assets/*"
+			],
+			"@monographiaEnvironments/*": [
+				"src/environments/*"
+			],
+			"core-js/es7/reflect": [
+				"node_modules/core-js/proposals/reflect-metadata"
+			]
+		},
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"target": "es2020",
+		"typeRoots": [
+			"node_modules/@types"
+		]
+	},
+	"forceConsistentCasingInFileNames": true,
+	"noImplicitReturns": true,
+	"strict": true
+}

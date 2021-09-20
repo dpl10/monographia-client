@@ -1,0 +1,20 @@
+<p-table #pTable [columns]="columns" [value]="itemData" autoLayout="true" alwaysShowPaginator="false" dataKey="id" [globalFilterFields]="['TableSearchIndex']">
+		<ng-template *ngIf="this.searchBox === true" pTemplate="caption">
+			<app-primeng-autocomplete [searchItem]="table" size="lg" (input)="pTable.filterGlobal(flatten($event.target.value), 'contains')"></app-primeng-autocomplete>
+		</ng-template>
+	<ng-template pTemplate="header" let-columns>
+		<tr>
+			<th *ngFor="let c of columns" [pSortableColumn]="c.field">
+				<div [innerHTML]="c.title"></div>
+				<p-sortIcon [field]="c.field"></p-sortIcon>
+			</th>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-itemData let-columns="columns">
+		<tr>
+			<td *ngFor="let c of columns">
+				<div [innerHTML]="itemData[c.field]"></div>
+			</td>
+		</tr>
+	</ng-template>
+</p-table>

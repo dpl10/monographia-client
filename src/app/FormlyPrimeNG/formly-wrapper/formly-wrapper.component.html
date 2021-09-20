@@ -1,0 +1,21 @@
+<div *ngIf="to.label && to.hideLabel !== true" class="ui-widget">
+	<div class="formDescription">
+		<fa-icon [icon]="faQuestionCircle" size="fa-lg" [fixedWidth]="true"></fa-icon>
+		<div class="formDescriptionText">
+			{{to.description | translate}}
+		</div>
+	</div>
+	<label [for]="id">
+		{{to.label | translate}}
+		<ng-container *ngIf="to.required && to.hideRequiredMarker !== true" class="formRequired">*</ng-container>
+	</label>
+	<div *ngIf="showError!==undefined && showError===true">
+		<div class="formError">	
+			<fa-icon [icon]="faExclamationTriangle" size="fa-lg" [fixedWidth]="true" class="formErrorIcon"></fa-icon>
+			<div class="formErrorText">
+				{{to.invalid | translate}}
+			</div>
+		</div>	
+	</div>
+</div>
+<ng-container #fieldComponent></ng-container>

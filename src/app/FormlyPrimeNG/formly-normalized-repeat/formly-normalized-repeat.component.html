@@ -1,0 +1,35 @@
+<div *ngFor="let field of field.fieldGroup; let i = index">
+	<div class="formArrayElement">
+		<formly-group [field]="field"></formly-group>
+		<div class="formDescription">
+			<p-button (onClick)="removeClick(i)" class="formArrayButtonRight"><app-fa-minus [container]="true" size="lg"></app-fa-minus></p-button>
+			<div class="formDescriptionText" [translate]="'i18n.repeatRemoveInstructions'" [translateParams]="{value: to.removeNoun | translate}"></div>
+		</div>
+		<div class="formDescription">
+			<p-button (onClick)="editClick(model[i], i)" [disabled]="disableEdit[i]" class="formArrayButtonRight">
+				<div [ngSwitch]="to.icon">
+					<div *ngSwitchCase="'person'"><app-fa-user-edit [container]="true" size="lg"></app-fa-user-edit></div>
+					<div *ngSwitchCase="'tag'"><app-fa-tagEdit [container]="true" size="lg"></app-fa-tagEdit></div>
+					<div *ngSwitchDefault><app-fa-edit [container]="true" size="lg"></app-fa-edit></div>
+				</div>
+			</p-button>
+			<div class="formDescriptionText" [translate]="'i18n.repeatEditInstructions'" [translateParams]="{value: to.editNoun | translate}"></div>
+		</div>
+		<div class="formDescription">
+			<p-button (onClick)="newClick(i)" class="formArrayButtonRight">
+				<div [ngSwitch]="to.icon">
+					<div *ngSwitchCase="'person'"><app-fa-user-plus [container]="true" size="lg"></app-fa-user-plus></div>
+					<div *ngSwitchCase="'tag'"><app-fa-tagAdd [container]="true" size="lg"></app-fa-tagAdd></div>
+					<div *ngSwitchDefault><app-fa-plus-square [container]="true" size="lg"></app-fa-plus-square></div>
+				</div>
+			</p-button>
+			<div class="formDescriptionText" [translate]="'i18n.repeatAddNewInstructions'" [translateParams]="{value: to.addNewNoun | translate}"></div>
+		</div>
+	</div>
+</div>
+<div>
+	<div class="formDescription">
+		<p-button (onClick)="addClick()" class="formArrayButtonBottom"><app-fa-plus [container]="true" size="lg"></app-fa-plus></p-button>
+		<div class="formDescriptionText" [translate]="'i18n.repeatAddInstructions'" [translateParams]="{value: to.addNoun | translate}"></div>
+	</div>
+</div>

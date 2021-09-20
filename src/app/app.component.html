@@ -1,0 +1,56 @@
+<ngx-loading-bar
+	color="#338811"
+	height="0.25em"
+	diameter="0.5em"
+></ngx-loading-bar>
+<div class="p-grid">
+	<div class="p-col-12 p-justify-center">
+		<div [ngSwitch]="router.url" class="monographia-filler">
+			<div *ngSwitchCase="'/faq'"><img src="assets/image/monographia-banner.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+			<div *ngSwitchCase="'/logoff'"><img src="assets/image/monographia-banner.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+			<div *ngSwitchCase="'/logon'"><img src="assets/image/monographia-banner.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+			<div *ngSwitchCase="'/monographia'"><img src="assets/image/monographia-banner.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+			<div *ngSwitchCase="'/schema'"><img src="assets/image/monographia-banner.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+			<div *ngSwitchCase="'/showcase'"><img src="assets/image/monographia-banner.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+			<div *ngSwitchCase="'/utility'"><img src="assets/image/monographia-banner.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+			<div *ngSwitchDefault><img src="assets/image/monographia-ensign.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+		</div>
+	</div>
+	<div class="p-col-2">
+		<nav>
+			<a routerLink="/monographia" routerLinkActive="navButtonInactive" class="navButton"><div [innerHTML]="'i18n.monographiaButton' | translate"></div></a>
+			<a routerLink="/utility" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.utilityButton'"></div></a>
+			<a routerLink="/schema" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.databaseSchemaButton'"></div></a>
+			<a routerLink="/showcase" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.interfaceShowcaseButton'"></div></a>
+			<a routerLink="/faq" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.faqButton'"></div></a>
+			<a routerLink="/logon" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.logonButton'"></div></a>
+			<div *ngIf="this.authenticationService.isLoggedOn()">
+				<a routerLink="/project" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.projectButton'"></div></a>
+				<a routerLink="/literature" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.literatureButton'"></div></a>
+				<a routerLink="/taxonomy" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.taxonomyButton'"></div></a>
+				<a routerLink="/classification" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.classificationsButton'"></div></a>
+				<a routerLink="/collection" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.collectionsButton'"></div></a>
+				<a routerLink="/specimen" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.specimensButton'"></div></a>
+				<a routerLink="/character" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.charactersButton'"></div></a>
+				<a routerLink="/observation" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.observationButton'"></div></a>
+				<a routerLink="/multimedia" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.multimediaButton'"></div></a>
+				<a routerLink="/syndication" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.syndicationButton'"></div></a>
+				<a routerLink="/output" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.outputButton'"></div></a>
+				<a routerLink="/profile" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.profileButton'"></div></a>
+			</div>
+			<a routerLink="/wiki" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.wikiButton'"></div></a>
+			<a routerLink="/acknowledgment" routerLinkActive="navButtonInactive" class="navButton"><div [translate]="'i18n.acknowledgmentsButton'"></div></a>
+		</nav>
+	</div>
+	<div class="p-col-8 p-col-nogutter">
+		<div class="p-grid">
+			<div class="p-col-12 p-col-nogutter">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+	<div class="p-col-12 p-justify-center">
+		<div class="monographia-filler"><img src="assets/image/monographia-banderole.svg" alt="{{'i18n.decorativeImage' | translate}}" class="center"></div>
+	</div>
+</div>
+<app-message></app-message>
